@@ -3,14 +3,11 @@ let Transaction = require('./transaction');
 let Wallet = require('./wallet');
 
 let blockchain = new Blockchain('ION');
-let args = process.argv.slice(2);
-
 let wallet1 = new Wallet();
 let wallet2 = new Wallet();
+let args = process.argv.slice(2);
 
-if (blockchain.blocks.length === 0) {
-  blockchain.addGenesisBlock();
-}
+console.log(`wallet ${wallet1.publicKey}`);
 
 if (args.length > 0 && args[0] === '-m') {
   while (1) {
