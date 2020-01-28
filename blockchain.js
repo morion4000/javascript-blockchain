@@ -11,14 +11,17 @@ class Blockchain {
     this.transactions = [];
     this.blocks = [];
     this.height = 0;
-    this.difficulty = 4;
+    this.difficulty = 5;
     this.miningReward = 10;
+
+    this.addGenesisBlock();
   }
 
   addGenesisBlock() {
-    this.height = 1;
+    const hash = SHA256(0).toString();;
 
-    this.blocks.push(new Block(0, '01/01/20', this.transactions));
+    this.height = 1;
+    this.blocks.push(new Block(0, Date.now(), this.transactions, hash));
   }
 
   getLatestBlock() {
@@ -58,13 +61,13 @@ class Blockchain {
 
   addTransaction(transaction) {
     if (transaction.isValid()) {
-      this.transactions.push(transaction);  
+      this.transactions.push(transaction);
     }
   }
 
   computeHash(data, nonce) {
     const latestBlock = this.getLatestBlock();
-    const timestamp = '01/02/21';
+    const timestamp = Date.now();
 
     return SHA256((latestBlock.index + 1) + latestBlock.hash + timestamp +
       JSON.stringify(data) + nonce).toString();
@@ -89,7 +92,7 @@ class Blockchain {
 
   mine(minerAddress) {
     const index = this.getLatestBlock().index + 1;
-    let newBlock = new Block(index, '01/02/21', null);
+    let newBlock = new Block(index, Date.now(), null);
     let hash;
 
     do {

@@ -7,6 +7,7 @@ class Transaction {
     this.from = from;
     this.to = to;
     this.amount = amount;
+    this.timestamp = Date.now();
     this.signature = null;
   }
 
