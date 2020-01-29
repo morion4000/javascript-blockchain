@@ -23,3 +23,7 @@
 
 * http://www.righto.com/2014/02/bitcoin-mining-hard-way-algorithms.html
 * https://medium.com/@preethikasireddy/how-does-ethereum-work-anyway-22d1df506369
+* https://hackernoon.com/learn-blockchains-by-building-one-117428612f46
+* https://www.youtube.com/watch?v=zVqczFZr124
+* https://github.com/bitcoinbook/bitcoinbook
+* https://github.com/ethereumbook/ethereumbook
