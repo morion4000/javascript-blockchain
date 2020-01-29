@@ -2,8 +2,9 @@
   "name": "blockchain",
   "version": "0.0.1",
   "scripts": {
-    "start": "node node.js",
-    "miner": "node miner.js"
+    "start": "node cli/node.js",
+    "miner": "node cli/miner.js",
+    "wallet": "node cli/wallet.js"
   },
   "dependencies": {
     "crypto-js": "^3.1.9-1",

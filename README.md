@@ -7,7 +7,7 @@
 * P2P network (libp2p)
 * consensus protocol (longest chain, BFT)
 * validations (transactions, blocks)
-* CLI tools (wallet, ~~miner~~)
+* CLI tools (~~wallet~~, ~~miner~~, node)
 * consensus algorithms (~~POW~~, POS, DPOS)
 * mining pool (Stratum, Getwork, Getblocktemplate)
 * payment mechanisms (PPS, PPLNS)
