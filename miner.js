@@ -10,14 +10,11 @@ let wallet2 = new Wallet();
 console.log(`started with wallet: ${wallet1.publicKey}`);
 
 while (1) {
-  // Test transaction
+  // Test transactions
   let transaction = new Transaction(wallet1.publicKey, wallet2.publicKey, 5);
   transaction.signature = wallet1.sign(transaction.calculateHash());
 
   blockchain.addTransaction(transaction);
 
   blockchain.mine(wallet1.publicKey);
-
-  console.log(blockchain.isValid());
-  console.dir(blockchain.blocks);
 }

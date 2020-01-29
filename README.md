@@ -1,4 +1,4 @@
-# Javascript Blockchain Implementation
+# Javascript Blockchain
 
 ## TODO
 

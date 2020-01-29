@@ -57,6 +57,8 @@ class Chain {
     this.transactions = [];
 
     this.blocks.push(block);
+
+    console.log(`block mined ${block.hash}`);
   }
 
   addTransaction(transaction) {
