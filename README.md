@@ -1,7 +1,7 @@
 # JavaScript Blockchain
 
 ## Abstract
-This is a naive implementation of a Blockchain. It is for learning purposes and it tries to simplify the complex technology stack and concepts of a real Blockchain.
+This is a naive implementation of a Blockchain. It is for learning purposes and it tries to simplify the complex technology stack and concepts of a real Blockchain. Almost no optimisations or security practises implemented.
 
 ## TODO
 
