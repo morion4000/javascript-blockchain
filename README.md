@@ -39,3 +39,18 @@ This is a naive implementation of a Blockchain. It is for learning purposes and 
 ## Specifications
 
 * https://www.blockchain.com/api/json_rpc_api
+
+## Commands
+
+### Run a node
+`npm start`
+
+### Run a solo miner
+`npm run miner`
+
+### Run the wallet utility
+`npm run wallet`
+
+
+## Installation
+`npm install`
