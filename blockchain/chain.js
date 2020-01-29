@@ -1,6 +1,7 @@
 let Block = require('./block');
 let Transaction = require('./transaction');
 let Difficulty = require('./difficulty');
+let Reward = require('./reward');
 const consts = require('../consts');
 let POW = require('./../mining').POW;
 
@@ -11,7 +12,7 @@ class Chain {
     this.blocks = [];
     this.height = 0;
     this.difficulty = Difficulty.latest;
-    this.miningReward = consts.MINING_REWARD;
+    this.miningReward = Reward.latest;
 
     this.addGenesisBlock();
 
