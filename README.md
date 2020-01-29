@@ -3,13 +3,12 @@
 ## TODO
 
 * implement persistent storage (sqlite, file)
-* load from storage
 * implement communication protocol (REST, RPC)
 * implement P2P network
 * implement consensus protocol
-* more validations
-* CLI for wallets
-* POS, DPOS, etc?
+* validations (transactions, blocks)
+* CLI tools (wallets, miners)
+* more consensus algorithms (POS, DPOS)
 * implement mining pool
 * Merkle tree for transactions
 * SPV
