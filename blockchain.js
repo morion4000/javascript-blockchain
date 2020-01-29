@@ -105,6 +105,8 @@ class Blockchain {
 
     newBlock.hash = hash;
     newBlock.data = this.transactions;
+    newBlock.coinbase = minerAddress;
+    newBlock.miningReward = this.miningReward;
 
     this.addBlock(newBlock);
   }
