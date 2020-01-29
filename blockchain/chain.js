@@ -1,27 +1,26 @@
-const SHA256 = require('crypto-js/sha256');
-
 let Block = require('./block');
 let Transaction = require('./transaction');
+let Difficulty = require('./difficulty');
+const consts = require('../consts');
+let POW = require('./../consensus').POW;
 
-class Blockchain {
+class Chain {
   constructor(name) {
-    console.log(`init blockchain, ${name}`);
-
     this.name = name;
     this.transactions = [];
     this.blocks = [];
     this.height = 0;
-    this.difficulty = 4;
-    this.miningReward = 10;
+    this.difficulty = Difficulty.latest;
+    this.miningReward = consts.MINING_REWARD;
 
     this.addGenesisBlock();
+
+    console.log(`init chain: ${this.name}, diff: ${this.difficulty}`);
   }
 
   addGenesisBlock() {
-    const hash = SHA256(0).toString();;
-
     this.height = 1;
-    this.blocks.push(new Block(0, Date.now(), this.transactions, hash));
+    this.blocks.push(new Block(0, Date.now(), this.transactions, consts.GENESIS_BLOCK_HASH));
   }
 
   getLatestBlock() {
@@ -65,14 +64,6 @@ class Blockchain {
     }
   }
 
-  computeHash(data, nonce) {
-    const latestBlock = this.getLatestBlock();
-    const timestamp = Date.now();
-
-    return SHA256((latestBlock.index + 1) + latestBlock.hash + timestamp +
-      JSON.stringify(data) + nonce).toString();
-  }
-
   isValid(height) {
     const l = height || this.height;
 
@@ -91,25 +82,22 @@ class Blockchain {
   }
 
   mine(minerAddress) {
-    const index = this.getLatestBlock().index + 1;
-    let newBlock = new Block(index, Date.now(), null);
-    let hash;
-
-    do {
-      hash = this.computeHash(this.transactions, newBlock.nonce);
-      newBlock.nonce++;
-    } while (hash.substring(0, this.difficulty) !==
-      Array(this.difficulty + 1).join('0'));
+    const latestBlock = this.getLatestBlock();
+    let newBlock = new Block(latestBlock.index + 1, Date.now(), null);
 
     this.transactions.push(new Transaction(null, minerAddress, this.miningReward));
 
+    const [hash, nonce] = POW.hash(this.difficulty, this.transactions, latestBlock);
+    
     newBlock.hash = hash;
+    newBlock.nonce = nonce;
     newBlock.data = this.transactions;
     newBlock.coinbase = minerAddress;
     newBlock.miningReward = this.miningReward;
+    newBlock.difficulty = this.difficulty;
 
     this.addBlock(newBlock);
   }
 }
 
-module.exports = Blockchain;
+module.exports = Chain;

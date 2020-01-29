@@ -1,8 +1,8 @@
-let Blockchain = require('./blockchain');
-let Transaction = require('./transaction');
-let Wallet = require('./wallet');
+let Chain = require('./blockchain/chain');
+let Transaction = require('./blockchain/transaction');
+let Wallet = require('./core/wallet');
 
-let blockchain = new Blockchain('ION');
+let blockchain = new Chain('TEST');
 let wallet1 = new Wallet();
 let wallet2 = new Wallet();
 let args = process.argv.slice(2);
