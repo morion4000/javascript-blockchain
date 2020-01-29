@@ -2,7 +2,7 @@ let Block = require('./block');
 let Transaction = require('./transaction');
 let Difficulty = require('./difficulty');
 const consts = require('../consts');
-let POW = require('./../consensus').POW;
+let POW = require('./../mining').POW;
 
 class Chain {
   constructor(name) {
