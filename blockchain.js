@@ -11,7 +11,7 @@ class Blockchain {
     this.transactions = [];
     this.blocks = [];
     this.height = 0;
-    this.difficulty = 5;
+    this.difficulty = 4;
     this.miningReward = 10;
 
     this.addGenesisBlock();
