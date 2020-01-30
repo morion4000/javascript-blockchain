@@ -8,19 +8,20 @@ This is a naive implementation of a Blockchain. It is for learning purposes and 
 - [x] simple transactions
 - [x] static difficulty
 - [x] static mining rewards
-- [x] basic wallet
+- [x] basic wallet (secp256k1)
 - [ ] persistent storage (sqlite, file)
 - [ ] communication protocol (sockets, ~~JSON-RPC~~, REST)
 - [ ] P2P network (libp2p)
 - [ ] consensus protocol (longest chain, BFT)
 - [ ] validations (transactions, blocks)
 - [x] CLI tools (wallet, miner, node)
-- [ ] consensus algorithms (~~POW~~, POS, DPOS)
+- [ ] consensus algorithms (~~POW (SHA256)~~, POS, DPOS)
 - [ ] mining pool (Stratum, Getwork, Getblocktemplate)
 - [ ] payment mechanisms (PPS, PPLNS)
 - [ ] Merkle tree for transactions
 - [ ] SPV
 - [ ] complex transactions (script)
+- [ ] transactions fee
 - [ ] dynamic difficulty
 - [ ] dynamic mining rewards (halving)
 - [ ] transactions anti-spam mechanism
