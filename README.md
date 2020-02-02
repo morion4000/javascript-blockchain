@@ -9,6 +9,8 @@ This is a naive implementation of a Blockchain. It is for learning purposes and 
 - [x] static difficulty
 - [x] static mining rewards
 - [x] basic wallet (secp256k1)
+- [ ] transaction fee
+- [ ] block size limit
 - [ ] persistent storage (sqlite, file)
 - [ ] communication protocol (sockets, ~~JSON-RPC~~, REST)
 - [ ] P2P network (libp2p)
@@ -21,7 +23,6 @@ This is a naive implementation of a Blockchain. It is for learning purposes and 
 - [ ] Merkle tree for transactions
 - [ ] SPV
 - [ ] complex transactions (script)
-- [ ] transactions fee
 - [ ] dynamic difficulty
 - [ ] dynamic mining rewards (halving)
 - [ ] transactions anti-spam mechanism
