@@ -11,6 +11,7 @@ This is a naive implementation of a Blockchain. It is for learning purposes and 
 - [x] basic wallet (secp256k1)
 - [ ] transaction fee
 - [ ] block size limit
+- [ ] miner configurations (min transaction fee)
 - [ ] persistent storage (sqlite, file)
 - [ ] communication protocol (sockets, ~~JSON-RPC~~, REST)
 - [ ] P2P network (libp2p)
