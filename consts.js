@@ -5,7 +5,14 @@ module.exports = {
     DIFFICULTY: 4,
     NETWORK: {
         JSONRPC: {
-            SERVER_PORT: 3000
-        }
+            SERVER_PORT: 8545
+        },
+        SOCKETS: {
+            SERVER_PORT: 4000
+        },
+        BOOTSTRAPS: [
+            ['http', 'localhost', 4000],
+            ['http', 'localhost', 4001]
+        ]
     }
 };
