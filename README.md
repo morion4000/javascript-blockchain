@@ -46,7 +46,7 @@ This is a naive implementation of a Blockchain. It is for learning purposes and 
 ## Commands
 
 ### Run a node
-`npm start`
+`npm start -- --port 4000 --rpc --rpcport 3000`
 
 ### Run a solo miner
 `npm run miner`
