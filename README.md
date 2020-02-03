@@ -5,7 +5,7 @@ This is a naive implementation of a Blockchain. It is for learning purposes and 
 
 ## TODO
 
-- [x] simple transactions
+- [x] simple transactions (UTXO)
 - [x] static difficulty
 - [x] static mining rewards
 - [x] basic wallet (secp256k1)
