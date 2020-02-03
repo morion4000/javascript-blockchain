@@ -14,7 +14,7 @@ This is a naive implementation of a Blockchain. It is for learning purposes and 
 - [ ] miner configurations (min transaction fee)
 - [ ] persistent storage (sqlite, file)
 - [ ] communication protocol (sockets, ~~JSON-RPC~~, REST)
-- [ ] P2P network (libp2p)
+- [ ] P2P network (~~socket.io~~, libp2p)
 - [ ] consensus protocol (longest chain, BFT)
 - [ ] validations (transactions, blocks)
 - [x] CLI tools (wallet, miner, node)
