@@ -1,8 +1,17 @@
 const fs = require('fs');
+const program = require('commander');
+
+program
+  .option('--rpc', 'Start RPC server')
+  .option('--rpcaddr <address>', 'Address for RPC server')
+  .option('--rpcport <port>', 'Port for RPC server')
+  .option('--port <port>', 'Port for sockets server');
+
+program.parse(process.argv);
 
 let Chain = require('../blockchain/chain');
 let Wallet = require('../core/wallet');
-let Server = require('../network/jsonrpc/server');
+let Network = require('../network');
 
 const WALLET_FILE = 'wallet.json';
 let privateKey;
@@ -16,10 +25,11 @@ if (fs.existsSync(WALLET_FILE)) {
 }
 
 let wallet = new Wallet(privateKey);
-let server = new Server(blockchain, wallet);
 
-server.start();
+Network.start_sockets(blockchain, wallet, program.port);
 
-console.log(`started node on port: ${server.port}`);
+if (program.rpc) {
+    Network.start_rpc(blockchain, wallet, program.rpcport);
+}
 
 blockchain.mine(wallet.publicKey);
