@@ -16,7 +16,7 @@ class Chain {
 
     this.addGenesisBlock();
 
-    console.log(`init chain: ${this.name}, diff: ${this.difficulty}`);
+    console.log('[BLOCKCHAIN]', `init chain: ${this.name}, diff: ${this.difficulty}`);
   }
 
   addGenesisBlock() {
@@ -58,7 +58,7 @@ class Chain {
 
     this.blocks.push(block);
 
-    console.log(`block mined ${block.hash}`);
+    console.log('[BLOCKCHAIN]', `block mined ${block.hash}`);
   }
 
   addTransaction(transaction) {
@@ -75,7 +75,7 @@ class Chain {
       const previousBlock = this.blocks[i - 1];
 
       if (currentBlock.previousHash !== previousBlock.hash) {
-        console.log(`invalid block ${currentBlock.index}`);
+        console.log('[BLOCKCHAIN]', `invalid block ${currentBlock.index}`);
 
         return false;
       }
