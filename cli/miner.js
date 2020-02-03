@@ -1,6 +1,6 @@
-let Chain = require('./blockchain/chain');
-let Transaction = require('./blockchain/transaction');
-let Wallet = require('./core/wallet');
+let Chain = require('../blockchain/chain');
+let Transaction = require('../blockchain/transaction');
+let Wallet = require('../core/wallet');
 
 let blockchain = new Chain('TEST');
 

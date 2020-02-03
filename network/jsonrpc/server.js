@@ -3,8 +3,9 @@ const consts = require('../../consts');
 const methods = require('./methods');
 
 class Server {
-    constructor(blockchain) {
+    constructor(blockchain, wallet) {
         this.blockchain = blockchain;
+        this.wallet = wallet;
         this.methods = methods(blockchain);
 
         this.server = jayson.server(this.methods, {
