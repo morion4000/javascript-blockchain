@@ -12,13 +12,13 @@ This is a naive implementation of a Blockchain. It is for learning purposes and 
 - [ ] transaction fee
 - [ ] block size limit
 - [ ] miner configurations (min transaction fee)
-- [ ] persistent storage (sqlite, file)
-- [x] communication protocol (~~sockets~~, ~~JSON-RPC~~)
-- [x] P2P network (~~socket.io~~)
+- [ ] persistent storage (sqlite, ~~file~~)
+- [x] communication protocol (sockets, JSON-RPC, ~~REST~~)
+- [x] P2P network (socket.io, ~~libp2p~~)
 - [ ] consensus protocol (longest chain, BFT)
 - [ ] validations (transactions, blocks)
 - [x] CLI tools (wallet, miner, node)
-- [ ] consensus algorithms (~~POW (SHA256)~~, POS, DPOS)
+- [ ] consensus algorithms (POW (SHA256), POS, DPOS)
 - [ ] mining pool (Stratum, Getwork, Getblocktemplate)
 - [ ] payment mechanisms (PPS, PPLNS)
 - [ ] Merkle tree for transactions
