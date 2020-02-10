@@ -28,7 +28,7 @@ This is a naive implementation of a Blockchain. It is for learning purposes and 
 - [ ] dynamic difficulty
 - [ ] dynamic mining rewards (halving)
 - [ ] transactions anti-spam mechanism
-- [ ] encoding
+- [ ] serialization
 - [ ] smart contracts
 
 ## References
