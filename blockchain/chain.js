@@ -1,3 +1,5 @@
+const chalk = require('chalk');
+
 let Block = require('./block');
 let Transaction = require('./transaction');
 let Difficulty = require('./difficulty');
@@ -16,7 +18,7 @@ class Chain {
 
     this.addGenesisBlock();
 
-    console.log('[BLOCKCHAIN]', `init chain: ${this.name}, diff: ${this.difficulty}`);
+    console.log(chalk.blue('[BLOCKCHAIN]'), `init chain: ${this.name}, diff: ${this.difficulty}`);
   }
 
   addGenesisBlock() {
@@ -58,7 +60,7 @@ class Chain {
 
     this.blocks.push(block);
 
-    console.log('[BLOCKCHAIN]', `block mined ${block.hash}`);
+    console.log(chalk.blue('[BLOCKCHAIN]'), `block mined ${block.hash}`);
   }
 
   addTransaction(transaction) {
@@ -75,7 +77,7 @@ class Chain {
       const previousBlock = this.blocks[i - 1];
 
       if (currentBlock.previousHash !== previousBlock.hash) {
-        console.log('[BLOCKCHAIN]', `invalid block ${currentBlock.index}`);
+        console.log(chalk.blue('[BLOCKCHAIN]'), `invalid block ${currentBlock.index}`);
 
         return false;
       }

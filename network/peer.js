@@ -11,8 +11,10 @@ class Peer {
         return `${this.portocol}://${this.address}:${this.port}`;
     }
 
-    connect() {
-        this.socket = new Client(this.getUrl());
+    connect(callback) {
+        const url = this.getUrl();
+
+        this.socket = new Client(url, callback);
     }
 }
 

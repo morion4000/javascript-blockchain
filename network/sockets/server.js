@@ -1,4 +1,6 @@
+const chalk = require('chalk');
 const io = require('socket.io');
+
 const consts = require('../../consts');
 //const methods = require('./methods');
 
@@ -9,7 +11,7 @@ class Server {
         //this.methods = methods(blockchain);
     }
 
-    start(port) {
+    start(port, callback = null) {
         let _this = this;
 
         this.port = port || consts.NETWORK.SOCKETS.SERVER_PORT;
@@ -18,18 +20,28 @@ class Server {
 
         // ping, pong, hello, disconect
         this.server.on('connection', function(socket) {
-            console.log('[SOCKETS]', `new connection`);
+            _this.socket = socket;
 
-            //_this.server.emit('ping', { will: 'be received by everyone'});
-            
-            socket.on('hello', function (from, msg) {
-                console.log('[SOCKETS]', 'I received a private message by ', from, ' saying ', msg);
-            });
-            
-            socket.on('disconnect', function () {
-                _this.server.emit('user disconnected');
-            });
+            console.log(chalk.yellow('[SOCKETS]'), `new connection to server`);
+
+            if (callback) {
+                callback(socket);
+            }
         });
+    }
+
+    on(event, callback) {
+        this.socket.on(event, function(data) {
+            console.log(chalk.yellow('[SOCKETS]'), `received ${event}`);
+
+            callback(data);
+        });
+    }
+
+    send(event, data) {
+        console.log(chalk.yellow('[SOCKETS]'), `sending ${event}`);
+
+        this.socket.emit(event, data);
     }
 }
 
