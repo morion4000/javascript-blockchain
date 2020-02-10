@@ -16,10 +16,9 @@ class Server {
 
         this.port = port || consts.NETWORK.SOCKETS.SERVER_PORT;
 
-        this.server = io(this.port);
+        const server = io(this.port);
 
-        // ping, pong, hello, disconect
-        this.server.on('connection', function(socket) {
+        server.on('connection', function(socket) {
             _this.socket = socket;
 
             console.log(chalk.yellow('[SOCKETS]'), `new connection to server`);

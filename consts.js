@@ -8,9 +8,10 @@ module.exports = {
             SERVER_PORT: 8545
         },
         SOCKETS: {
-            SERVER_PORT: 4000
+            SERVER_PORT: 4000,
+            PING_INTERVAL: 5000 // miliseconds
         },
-        BOOTSTRAPS: [
+        FALLBACKS: [
             ['http', 'localhost', 4000],
             ['http', 'localhost', 4001]
         ]

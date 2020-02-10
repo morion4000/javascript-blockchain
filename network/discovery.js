@@ -8,10 +8,10 @@ class Discovery {
         this.port = port;
         this.peers = [];
 
-        let bootstraps = consts.NETWORK.BOOTSTRAPS;
+        let fallbacks = consts.NETWORK.FALLBACKS;
 
-        for (var i=0, l=bootstraps.length; i<l; i++) {
-            const [protocol, address, port] = bootstraps[i];
+        for (var i=0, l=fallbacks.length; i<l; i++) {
+            const [protocol, address, port] = fallbacks[i];
         
             this.peers.push(new Peer(protocol, address, port));
         }
@@ -30,8 +30,13 @@ class Discovery {
                         console.log(chalk.magenta('[DEBUG]'), `peer height ${data.height}`);
                     });
 
-                    peer.socket.send('hello');
-                    peer.socket.send('getheight');
+                    setInterval(function() {
+                        peer.socket.send('hello');
+                    }, consts.NETWORK.SOCKETS.PING_INTERVAL);
+
+                    peer.socket.on('helloback', function(data) {
+                        peer.socket.send('getheight'); 
+                    });
 
                     //peer.socket.on('disconnect', console.log);
                     //peer.socket.on('connect', console.log);
