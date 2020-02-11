@@ -3,6 +3,8 @@
 ## Abstract
 This is a naive implementation of a Blockchain. It is for learning purposes and it tries to simplify the complex technology stack and concepts of a real Blockchain. There are no optimisations or security practises implemented.
 
+![](https://user-images.githubusercontent.com/585066/74216457-3a562a00-4cad-11ea-8e21-d1b32cb25c2b.png)
+
 ## Functionality
 
 - [x] simple transactions (UTXO)
