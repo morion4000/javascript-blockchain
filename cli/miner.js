@@ -1,20 +1,25 @@
+const fs = require('fs');
+
 let Chain = require('../blockchain/chain');
-let Transaction = require('../blockchain/transaction');
 let Wallet = require('../core/wallet');
+let Serializer = require('../core/serializer');
 
+// Overwrite console.log
+console.log = function() {};
+
+const WALLET_FILE = 'wallet.json';
+let privateKey;
 let blockchain = new Chain('TEST');
+ 
+if (fs.existsSync(WALLET_FILE)) {
+    const contents = fs.readFileSync(WALLET_FILE, 'utf8');
+    const parsed = JSON.parse(contents);
+    privateKey = parsed.private;
+}
 
-let wallet1 = new Wallet();
-let wallet2 = new Wallet();
-
-console.log(`started with wallet: ${wallet1.publicKey}`);
+let wallet = new Wallet(privateKey);
 
 while (1) {
-  // Test transactions
-  let transaction = new Transaction(wallet1.publicKey, wallet2.publicKey, 5);
-  transaction.signature = wallet1.sign(transaction.calculateHash());
-
-  blockchain.addTransaction(transaction);
-
-  blockchain.mine(wallet1.publicKey);
+  blockchain.mine(wallet.publicKey);
+  console.dir(Serializer.encode(blockchain.getLatestBlock()));
 }

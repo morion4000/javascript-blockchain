@@ -5,33 +5,22 @@ class Client {
     constructor(url, callback = null) {
         this.socket = io(url);
         this.connected = false;
-        let _this = this;
 
         console.log(chalk.yellow('[SOCKETS]'), `connecting to node ${url}`);
+    }
 
-        this.socket.on('connect', function() {
+    on_connect(callback) {
+        let _this = this;
+
+        this.socket.on('connect', function () {
             _this.connected = true;
 
-            console.log(chalk.yellow('[SOCKETS]'), `connected to node ${url}`);
+            console.log(chalk.yellow('[SOCKETS]'), `connected to node`);
 
             if (callback) {
-                callback();
+                callback(_this.socket);
             }
         });
-    }
-
-    on(event, callback) {
-        this.socket.on(event, function(data) {
-            console.log(chalk.yellow('[SOCKETS]'), `received ${event}`);
-
-            callback(data);
-        });
-    }
-
-    send(event, data) {
-        console.log(chalk.yellow('[SOCKETS]'), `sending ${event}`);
-
-        this.socket.emit(event, data);
     }
 }
 

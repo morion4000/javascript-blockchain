@@ -32,6 +32,7 @@ This is a naive implementation of a Blockchain. It is for learning purposes and 
 - [ ] transactions anti-spam mechanism
 - [ ] serialization
 - [ ] smart contracts
+- [ ] calculate hashrate
 
 ## References
 
@@ -45,6 +46,8 @@ This is a naive implementation of a Blockchain. It is for learning purposes and 
 ## Specifications
 
 * https://www.blockchain.com/api/json_rpc_api
+* https://ethereum.gitbooks.io/frontier-guide/devp2p.html
+* https://github.com/ethereum/wiki/wiki/json-rpc
 
 ## Commands
 

@@ -10,12 +10,6 @@ class Peer {
     getUrl() {
         return `${this.portocol}://${this.address}:${this.port}`;
     }
-
-    connect(callback) {
-        const url = this.getUrl();
-
-        this.socket = new Client(url, callback);
-    }
 }
 
 module.exports = Peer;

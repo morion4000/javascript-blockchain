@@ -60,7 +60,7 @@ class Chain {
 
     this.blocks.push(block);
 
-    console.log(chalk.blue('[BLOCKCHAIN]'), `block mined ${block.hash}`);
+    console.log(chalk.blue('[BLOCKCHAIN]'), `block added ${block.hash}`);
   }
 
   addTransaction(transaction) {
